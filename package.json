@@ -1,0 +1,23 @@
+{
+  "name": "stardewmodscontroller",
+  "version": "1.0.0",
+  "description": "Disables and enables SV mods.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "svmodhandler": "./src/handler.js"
+  },
+  "author": "ExperiBass",
+  "license": "GPL-3.0",
+  "keywords": [
+    "Stardew",
+    "Valley",
+    "Mods"
+  ],
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "inquirer": "^7.3.3"
+  }
+}
