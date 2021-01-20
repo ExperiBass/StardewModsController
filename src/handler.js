@@ -48,17 +48,23 @@ async function handle() {
 
     // now enable and disable the mods
     for (mod of results.mods) {
+        // get the dir object
         const dir = dirs.find(v => v.name === mod)
+        // check if its disabled...
         if (dir.name.startsWith(`.`)) {
-            const noDotName = dir.name.slice(1) // remove the `.`
+            // ...if so...
+            const noDotName = dir.name.slice(1) // ...remove the `.`...
             try {
+                // ...rename the folder...
                 await fs.renameSync(path.normalize(path.join(CWD, dir.name)), path.normalize(path.join(CWD, noDotName)))
+                // ...and alert the user
                 console.log(chalk.greenBright(`The mod "${chalk.yellowBright(noDotName)}" was enabled!`))
             } catch (e) {
                 console.log(chalk.red.bold(`There was an error! Exiting...\nError: ${e.stack}`))
                 process.exit(1)
             }
         } else {
+            // and do the same down here, except this time we're adding the `.` to disable it
             try {
                 await fs.renameSync(path.normalize(path.join(CWD, dir.name)), path.normalize(path.join(CWD, `.${dir.name}`)))
                 console.log(chalk.greenBright(`The mod "${chalk.yellowBright(dir.name)}" was disabled!`))
