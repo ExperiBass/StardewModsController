@@ -1,5 +1,5 @@
 {
-  "name": "stardewmodscontroller",
+  "name": "svmodhandler",
   "version": "1.0.0",
   "description": "Disables and enables SV mods.",
   "main": "index.js",
